@@ -261,7 +261,7 @@ function fromPrivateKey (privateKey, chainCode, network) {
   typeforce({
     privateKey: UINT256_TYPE,
     chainCode: UINT256_TYPE
-  }, { privateKey, chainCode })
+  }, { privateKey: privateKey, chainCode: chainCode })
   network = network || BITCOIN
 
   if (!ecc.isPrivate(privateKey)) throw new TypeError('Private key not in range [1, n)')
@@ -272,7 +272,7 @@ function fromPublicKey (publicKey, chainCode, network) {
   typeforce({
     publicKey: typeforce.BufferN(33),
     chainCode: UINT256_TYPE
-  }, { publicKey, chainCode })
+  }, { publicKey: publicKey, chainCode: chainCode })
   network = network || BITCOIN
 
   // verify the X coordinate is a point on the curve
