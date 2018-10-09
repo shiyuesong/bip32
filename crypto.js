@@ -1,5 +1,5 @@
-let createHash = require('create-hash')
-let createHmac = require('create-hmac')
+var createHash = require('create-hash')
+var createHmac = require('create-hmac')
 
 function hash160 (buffer) {
   return createHash('rmd160').update(
@@ -11,4 +11,4 @@ function hmacSHA512 (key, data) {
   return createHmac('sha512', key).update(data).digest()
 }
 
-module.exports = { hash160, hmacSHA512 }
+module.exports = { hash160: hash160, hmacSHA512: hmacSHA512 }
